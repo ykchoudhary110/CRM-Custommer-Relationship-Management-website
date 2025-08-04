@@ -3,40 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CRM Dashboard</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Customer CRM Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <img src="images/crm_logo.png.png" alt="CRM Logo" class="logo" />
+
+  <!-- Header -->
+  <header style="display: flex; align-items: center; background-color: #007bff; color: white; padding: 15px;">
+    <img src="crm_logo.png.png" alt="CRM Logo" style="width: 60px; height: auto; margin-right: 15px;" />
     <h1>Customer CRM Dashboard</h1>
-    <button id="dark-mode-btn">
-      <img src="images/icons8-night-mode-50.png" alt="Dark Mode" />
-    </button>
   </header>
 
-  <main>
-    <div class="button-bar">
-      <button id="add-btn">
-        <img src="images/icon_add.png.png" alt="Add" /> Add Customer
-      </button>
-      <button id="import-btn">
-        <img src="images/Import.png" alt="Import" /> Import CSV
-      </button>
-      <button id="export-btn">
-        <img src="images/icons8-excel-50.png" alt="Export" /> Export Excel
-      </button>
-      <button id="print-btn">
-        <img src="images/icons8-pdf-50.png" alt="PDF" /> Print / PDF
-      </button>
-      <button id="dashboard-btn">
-        <img src="images/icons8-dashboard-24.png" alt="Dashboard" /> View Dashboard
-      </button>
-    </div>
+  <!-- Action Buttons -->
+  <div style="padding: 20px;">
+    <button onclick="addCustomer()">
+      <img src="icon_add.png.png" alt="Add" style="height:20px; vertical-align: middle;" />
+      Add Customer
+    </button>
+    <button onclick="importCSV()">
+      <img src="Import.png" alt="Import" style="height:20px; vertical-align: middle;" />
+      Import CSV
+    </button>
+    <button onclick="exportExcel()">
+      <img src="icons8-excel-50.png" alt="Excel" style="height:20px; vertical-align: middle;" />
+      Export Excel
+    </button>
+    <button onclick="printPDF()">
+      <img src="icons8-pdf-50.png" alt="PDF" style="height:20px; vertical-align: middle;" />
+      Print / PDF
+    </button>
+    <button onclick="viewDashboard()">
+      <img src="icons8-dashboard-24.png" alt="Dashboard" style="height:20px; vertical-align: middle;" />
+      View Dashboard
+    </button>
+  </div>
 
-    <input type="text" id="search" placeholder="Search customers..." />
+  <!-- Search -->
+  <div style="padding: 0 20px 20px;">
+    <input type="text" id="searchInput" onkeyup="searchCustomer()" placeholder="Search customers..." style="width: 100%; padding: 10px;" />
+  </div>
 
-    <table id="customer-table">
+  <!-- Table -->
+  <div style="padding: 0 20px 20px;">
+    <table border="1" width="100%" style="border-collapse: collapse;">
       <thead>
         <tr>
           <th>Name</th>
@@ -46,14 +55,12 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody id="customerTable">
+        <!-- Rows will be inserted dynamically -->
+      </tbody>
     </table>
+  </div>
 
-    <canvas id="chart" style="display: none; margin-top: 20px;"></canvas>
-  </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
