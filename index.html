@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRM Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <img src="images/crm_logo.png.png" alt="CRM Logo" class="logo" />
+    <h1>Customer CRM Dashboard</h1>
+    <button id="dark-mode-btn">
+      <img src="images/icons8-night-mode-50.png" alt="Dark Mode" />
+    </button>
+  </header>
+
+  <main>
+    <div class="button-bar">
+      <button id="add-btn">
+        <img src="images/icon_add.png.png" alt="Add" /> Add Customer
+      </button>
+      <button id="import-btn">
+        <img src="images/Import.png" alt="Import" /> Import CSV
+      </button>
+      <button id="export-btn">
+        <img src="images/icons8-excel-50.png" alt="Export" /> Export Excel
+      </button>
+      <button id="print-btn">
+        <img src="images/icons8-pdf-50.png" alt="PDF" /> Print / PDF
+      </button>
+      <button id="dashboard-btn">
+        <img src="images/icons8-dashboard-24.png" alt="Dashboard" /> View Dashboard
+      </button>
+    </div>
+
+    <input type="text" id="search" placeholder="Search customers..." />
+
+    <table id="customer-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Type</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <canvas id="chart" style="display: none; margin-top: 20px;"></canvas>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
